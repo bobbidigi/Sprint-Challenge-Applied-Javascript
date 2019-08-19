@@ -25,39 +25,27 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
   // let data = response.data;
   .then(function (response) {
     console.log(response);
-    let javaScriptArray = response.data.articles["javascript"]
-    let bootStrapArray = response.data.articles["bootstrap"]
-    let jQueryArray = response.data.articles["jquery"]
-    let nodeArray = response.data.articles["node"]
-    let technologyArray = response.data.articles["technology"]
+    let javaScriptArray = response.data.articles.javascript;
+    let bootStrapArray = response.data.articles.bootstrap;
+    let jQueryArray = response.data.articles.jquery;
+    let nodeArray = response.data.articles.node;
+    let technologyArray = response.data.articles.technology;
 
-    // console.log(javaScriptArray);
     javaScriptArray.forEach(element => {
-      console.log(element)
       cardsContainer.appendChild(Card(element));
     });
-
     bootStrapArray.forEach(element => {
-      console.log(element)
       cardsContainer.appendChild(Card(element));
     });
-
     jQueryArray.forEach(element => {
-      console.log(element)
       cardsContainer.appendChild(Card(element));
     });
-
     nodeArray.forEach(element => {
-      console.log(element)
       cardsContainer.appendChild(Card(element));
     });
-
     technologyArray.forEach(element => {
-      console.log(element)
       cardsContainer.appendChild(Card(element));
     })
-    
-
   })
   .catch(function (error) {
     // handle error
@@ -65,6 +53,7 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
   })
   .finally(function () {
     // always executed
+    console.log("This fires last no matter what happens");
   });
 
 function Card(arr) {
@@ -93,10 +82,9 @@ function Card(arr) {
   author.appendChild(authorsName);
 
 
-
-
-  card.appendChild(author);
   card.appendChild(headline);
+  card.appendChild(author);
+  
 
   return card;
 }
