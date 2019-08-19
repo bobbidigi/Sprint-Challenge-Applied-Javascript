@@ -87,7 +87,7 @@ function Card(arr) {
   image.src = arr.authorPhoto;
   imageContainer.appendChild(image);
 
-  
+  //authors name
   let authorsName = document.createElement('span');
   authorsName.textContent = arr.authorName;
   author.appendChild(authorsName);
